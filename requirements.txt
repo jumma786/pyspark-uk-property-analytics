@@ -1,0 +1,7 @@
+pyspark==3.5.3
+pytest==8.3.3
+# run_pipeline._write_csv and scripts/analyse_from_csv.py fall back to
+# toPandas() where the Hadoop writer is unavailable; pyarrow makes that
+# conversion columnar rather than row-by-row.
+pandas==2.2.3
+pyarrow==17.0.0

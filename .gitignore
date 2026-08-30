@@ -1,0 +1,16 @@
+# The source file is 5.5 GB and the Parquet layer is derived from it.
+# Both are reproducible with: python -m src.run_pipeline --stage ingest
+data/raw/
+data/parquet/
+data/output/
+
+__pycache__/
+*.pyc
+.pytest_cache/
+.venv/
+venv/
+spark-warehouse/
+metastore_db/
+derby.log
+*.crc
+.DS_Store
