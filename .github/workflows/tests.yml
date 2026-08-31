@@ -1,0 +1,33 @@
+name: tests
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+jobs:
+  pytest:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      # PySpark 3.5.3 runs on Java 8, 11 or 17. 11 is what the project is
+      # developed against, so CI uses the same.
+      - uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: '11'
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+          cache: pip
+
+      - run: pip install -r requirements.txt
+
+      # The suite runs against small hand-built DataFrames, not the 5.5 GB
+      # source file, so it needs no data and no Hadoop shim. Invoked as bare
+      # `pytest` deliberately: that only resolves `src` because pytest.ini
+      # sets pythonpath, so CI would catch a regression there.
+      - run: pytest
