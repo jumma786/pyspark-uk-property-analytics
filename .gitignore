@@ -12,5 +12,6 @@ venv/
 spark-warehouse/
 metastore_db/
 derby.log
+*.log
 *.crc
 .DS_Store
