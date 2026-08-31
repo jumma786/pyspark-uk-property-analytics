@@ -15,6 +15,10 @@ explicit schemas, reproducible stages, measured performance claims, tested
 business logic, and clear separation between raw data, transformed storage, and
 analytical outputs.
 
+This project helps data engineers and analysts learn how to turn a
+multi-gigabyte public CSV into a tested, benchmarked, analytics-ready PySpark
+pipeline on local hardware.
+
 ## What This Project Does
 
 - Reads the official HM Land Registry Price Paid CSV with an explicit Spark
